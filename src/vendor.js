@@ -20,3 +20,4 @@ import jQuery from 'jquery';
 import angular from 'angular';
 import angularRoute from 'angular-route';
 import angularResource from 'angular-resource';
+import lodash from 'lodash';

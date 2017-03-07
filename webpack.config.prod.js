@@ -51,6 +51,10 @@ export default {
             // using htmlWebpackPlugin.options.varName
             trackJSToken: '43ad216f57d94259968435894490a5c7'
         }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
 
         // Eliminate duplicate packages when generating bundle
         new webpack.optimize.DedupePlugin(),

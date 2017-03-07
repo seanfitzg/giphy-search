@@ -6,7 +6,7 @@ import config from '../webpack.config.dev';
 
 /* eslint-disable no-console */
 
-const port = 3000;
+const port = 3030;
 const app = express();
 const compiler = webpack(config);
 
@@ -18,6 +18,9 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../src/index.html'));
 });
+
+
+app.use('/templates', express.static(path.join(__dirname, '../src/templates')))
 
 app.get('*', function(req, res) {
     res.redirect('/');

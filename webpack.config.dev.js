@@ -1,5 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
 
 export default {
     debug: true,
@@ -20,9 +21,9 @@ export default {
             template: 'src/index.html',
             inject: true
         }),
-        new HtmlWebpackPlugin({
-            filename: "templates/mainPanel.html",
-            template: 'src/templates/mainPanel.html'
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
         })
     ],
     module: {

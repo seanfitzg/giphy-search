@@ -5,10 +5,13 @@ import './css/bootstrap.css'
 import './css/thumbnail-gallery.css'
 import './fonts/glyphicons-halflings-regular.eot'
 
+import bootstrap from 'bootstrap';
 import angular from 'angular';
+
 import ngRoute from 'angular-route';
 import ngResource from 'angular-resource';
-import MainController from './mainController';
+import mainController from './app/mainController';
+import giphyService from './app/giphyService';
 
 var app = angular.module("giphyApp", ["ngRoute", "ngResource"]);
 
@@ -18,20 +21,25 @@ var exceptionHandler = function($injector) {
     };
 };
 
-app.controller("mainController", ["$http", MainController]);
+app.factory("giphyService", ["$resource", giphyService]);
+app.controller("mainController", ["giphyService", mainController]);
 
-app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
+app.config(["$routeProvider", function($routeProvider) {
 
     $routeProvider
+        .when("/favourites", {
+            templateUrl: 'templates/favourites.html',
+            controller: "mainController",
+            controllerAs: "main"
+        })
         .when("/", {
             templateUrl: 'templates/mainPanel.html',
             controller: "mainController",
-            controllerAs: "main",
-            reloadOnSearch: false
+            controllerAs: "main"
         });
 
     $routeProvider.otherwise({
-        redirectTo: "/"
+        redirectTo: "/sdfsdf"
     });
 }]);
 
