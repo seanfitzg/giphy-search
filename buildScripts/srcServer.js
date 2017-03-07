@@ -2,7 +2,9 @@ import express from 'express';
 import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
+import bodyParser from 'body-parser';
 import config from '../webpack.config.dev';
+import { favourites } from '../api/favourites'
 
 /* eslint-disable no-console */
 
@@ -15,16 +17,30 @@ app.use(require('webpack-dev-middleware')(compiler, {
     publicPath: config.output.publicPath
 }));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 
+
+app.get('/api/favourites', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ favourites }));
+});
+
+app.post('/api/favourites', (req, res) => {
+    console.log(req.body);
+    res.send(JSON.stringify({ favourites }));
+});
 
 app.use('/templates', express.static(path.join(__dirname, '../src/templates')))
 
 app.get('*', function(req, res) {
     res.redirect('/');
 });
+
 
 app.listen(port, function(err) {
     if (err) {

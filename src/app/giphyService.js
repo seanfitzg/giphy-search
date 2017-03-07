@@ -1,4 +1,6 @@
-const giphyService = function($resource) {
+/*eslint-disable no-unused-vars */
+/*eslint-disable no-console */
+const giphyService = function($resource, $http) {
 
     var returnVal = {};
 
@@ -14,6 +16,23 @@ const giphyService = function($resource) {
             function(err) {
                 return err;
             });
+    };
+
+    returnVal.addToFavourites = function(data) {
+
+        var x = $http.post('/api/favourites', data).then(
+            function(success) {
+                var x = success;
+            },
+            function(fail) {
+                var x = fail;
+            });
+        // .success(function(data, status, headers, config) {
+        //     var x = data;
+        // })
+        // .error(function(data, status, header, config) {
+        //     var x = data;
+        // });
     };
 
     return returnVal;

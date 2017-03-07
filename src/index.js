@@ -21,7 +21,7 @@ var exceptionHandler = function($injector) {
     };
 };
 
-app.factory("giphyService", ["$resource", giphyService]);
+app.factory("giphyService", ["$resource", "$http", giphyService]);
 app.controller("mainController", ["giphyService", mainController]);
 
 app.config(["$routeProvider", function($routeProvider) {
@@ -37,10 +37,6 @@ app.config(["$routeProvider", function($routeProvider) {
             controller: "mainController",
             controllerAs: "main"
         });
-
-    $routeProvider.otherwise({
-        redirectTo: "/sdfsdf"
-    });
 }]);
 
 app.factory("$exceptionHandler", ["$injector", exceptionHandler]);

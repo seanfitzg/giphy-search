@@ -17,7 +17,8 @@
     "prebuild": "npm-run-all clean-dist test lint",
     "build": "babel-node buildScripts/build.js",
     "postbuild": "babel-node buildScripts/distServer.js",
-    "deploy": "surge ./dist"
+    "deploy": "surge ./dist",
+    "debugBuild": "babel buildScripts/srcServer.js --out-dir debug --source-maps"
   },
   "author": "Sean Fitzgerald",
   "license": "MIT",
@@ -25,6 +26,7 @@
     "angular": "^1.6.2",
     "angular-resource": "^1.6.2",
     "angular-route": "^1.6.2",
+    "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.1",
     "lodash": "^4.17.4",

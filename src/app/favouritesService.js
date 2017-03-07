@@ -3,8 +3,7 @@ const favouritesService = function($resource) {
     var returnVal = {};
 
     returnVal.getFavourites = function() {
-
-        var res = $resource('api/getFavourites');
+        var res = $resource('api/favourites');
         return res.get(
             function(results) {
                 return results;

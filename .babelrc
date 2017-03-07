@@ -1,5 +1,7 @@
 {
-  "presets": [
-    "latest"
-  ]
+    "presets": [
+        "latest"
+    ],
+    "sourceMaps": true,
+    "retainLines": true
 }

@@ -26,17 +26,17 @@ export default function(giphyService) {
         });
     }
 
-    main.getCats = function(offset) {
-        let results = giphyService.searchApi('cats', offset);
-        if (lastCallToApi !== main.getCats) main.offset = 0
-        lastCallToApi = main.getCats;
+    main.getKittens = function(offset) {
+        let results = giphyService.searchApi('kittens', offset);
+        if (lastCallToApi !== main.getKittens) main.offset = 0
+        lastCallToApi = main.getKittens;
         mapResults(results);
     }
 
-    main.getDogs = function(offset) {
-        let results = giphyService.searchApi('dogs', offset);
-        if (lastCallToApi !== main.getDogs) main.offset = 0
-        lastCallToApi = main.getDogs;
+    main.getPuppies = function(offset) {
+        let results = giphyService.searchApi('puppies', offset);
+        if (lastCallToApi !== main.getPuppies) main.offset = 0
+        lastCallToApi = main.getPuppies;
         mapResults(results);
     }
 
@@ -52,7 +52,10 @@ export default function(giphyService) {
     }
 
     main.displayPopup = function(item) {
-        main.selected = item.fullSize;
-        main.sourceUrl = item.source;
+        main.selectedItem = item;
+    }
+
+    main.addToFavourites = function(item) {
+        giphyService.addToFavourites(item);
     }
 }
