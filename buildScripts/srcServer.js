@@ -20,11 +20,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.get('/', function(req, res) {
-//     res.sendFile(path.join(__dirname, '../src/index.html'));
-// });
-
-
 app.get('/api/favourites', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({ favourites }));
