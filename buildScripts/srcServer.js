@@ -26,7 +26,7 @@ app.get('/api/favourites', (req, res) => {
 });
 
 app.post('/api/favourites', (req, res) => {
-    console.log(req.body);
+    favourites.push(req.body);
     res.send(JSON.stringify({ favourites }));
 });
 

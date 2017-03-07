@@ -27,12 +27,11 @@ const giphyService = function($resource, $http) {
             function(fail) {
                 var x = fail;
             });
-        // .success(function(data, status, headers, config) {
-        //     var x = data;
-        // })
-        // .error(function(data, status, header, config) {
-        //     var x = data;
-        // });
+    };
+
+    returnVal.getFavourites = function() {
+
+        return $http.get('/api/favourites');
     };
 
     return returnVal;
