@@ -1,6 +1,6 @@
 # Giphy Search
 
-Simple demo app to showcase Node, Angular, Webpack etc.  It also uses babel to transpile from ES6, and eslint.
+Simple demo app to showcase Node, Angular, Webpack etc.  It also uses eslint, and babel to transpile from ES6.
 
 # To start
 * Git Clone the app to a directory
