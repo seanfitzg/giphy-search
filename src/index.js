@@ -13,9 +13,9 @@ import ngResource from 'angular-resource';
 import mainController from './app/mainController';
 import giphyService from './app/giphyService';
 
-var app = angular.module("giphyApp", ["ngRoute", "ngResource"]);
+let app = angular.module("giphyApp", ["ngRoute", "ngResource"]);
 
-var exceptionHandler = function($injector) {
+let exceptionHandler = function($injector) {
     return function(exception, cause) {
         console.error(exception, cause, exception.stack);
     };

@@ -4,8 +4,8 @@
 import _ from 'lodash';
 
 export default function(giphyService) {
-    const main = this;
 
+    const main = this;
 
     let lastCallToApi = {};
 

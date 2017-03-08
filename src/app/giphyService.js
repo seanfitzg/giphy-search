@@ -2,7 +2,7 @@
 /*eslint-disable no-console */
 const giphyService = function($http) {
 
-    var returnVal = {};
+    let returnVal = {};
 
     returnVal.searchApi = function(searchTerm, offset) {
 
@@ -13,7 +13,7 @@ const giphyService = function($http) {
 
     returnVal.addToFavourites = function(data) {
 
-        var x = $http.post('/api/favourites', data).then(
+        let x = $http.post('/api/favourites', data).then(
             function(success) {
                 var x = success;
             },
