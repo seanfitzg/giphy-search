@@ -1,21 +1,14 @@
 /*eslint-disable no-unused-vars */
 /*eslint-disable no-console */
-const giphyService = function($resource, $http) {
+const giphyService = function($http) {
 
     var returnVal = {};
 
     returnVal.searchApi = function(searchTerm, offset) {
 
         if (!offset) offset = 0;
+        return $http.get(`http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=dc6zaTOxFJmzC&limit=15&offset=${offset}`);
 
-        var res = $resource(`http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=dc6zaTOxFJmzC&limit=15&offset=${offset}`);
-        return res.get(
-            function(results) {
-                return results;
-            },
-            function(err) {
-                return err;
-            });
     };
 
     returnVal.addToFavourites = function(data) {

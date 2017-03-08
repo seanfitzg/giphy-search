@@ -14,17 +14,22 @@ export default function(giphyService) {
     main.results = [];
 
     function mapResults(results) {
-        results.$promise.then(results => {
-            let mappedResults = _.map(results.data, item => {
-                return {
-                    id: item.id,
-                    thumbnail: item.images.fixed_width_still.url,
-                    fullSize: item.images.original.url,
-                    source: item.source_post_url
-                }
+
+        results.then(
+            function(results) {
+                let mappedResults = _.map(results.data.data, item => {
+                    return {
+                        id: item.id,
+                        thumbnail: item.images.fixed_width_still.url,
+                        fullSize: item.images.original.url,
+                        source: item.source_post_url
+                    }
+                });
+                main.results = mappedResults;
+            },
+            function(fail) {
+                console.log(fail);
             });
-            main.results = mappedResults;
-        });
     }
 
     main.getKittens = function(offset) {
@@ -62,11 +67,11 @@ export default function(giphyService) {
 
     main.getFavourites = function() {
         let results = giphyService.getFavourites().then(
-            function(data) {
-                main.favourites = data.data.favourites;
+            function(results) {
+                main.favourites = results.data.favourites;
             },
             function(fail) {
-                var x = fail;
+                console.log(fail);
             });
     }
 

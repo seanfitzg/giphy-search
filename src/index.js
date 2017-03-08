@@ -21,7 +21,7 @@ var exceptionHandler = function($injector) {
     };
 };
 
-app.factory("giphyService", ["$resource", "$http", giphyService]);
+app.factory("giphyService", ["$http", giphyService]);
 app.controller("mainController", ["giphyService", mainController]);
 
 app.config(["$routeProvider", function($routeProvider) {
