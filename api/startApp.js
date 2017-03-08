@@ -4,6 +4,7 @@ import express from 'express';
 import { favourites } from '../api/favourites'
 import bodyParser from 'body-parser';
 import path from 'path';
+import _ from 'lodash';
 
 function start(app, port) {
 
@@ -16,8 +17,12 @@ function start(app, port) {
     });
 
     app.post('/api/favourites', (req, res) => {
-        favourites.push(req.body);
-        res.send(JSON.stringify({ favourites }));
+        if (!_.find(favourites, item => {
+                return item.id === req.body.id;
+            })) {
+            favourites.push(req.body);
+        }
+        res.end();
     });
 
     app.use('/templates', express.static(path.join(__dirname, '../src/templates')))
