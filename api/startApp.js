@@ -25,6 +25,16 @@ function start(app, port) {
         res.end();
     });
 
+    app.delete('/api/favourites', (req, res) => {
+        let fav = _.find(favourites, item => {
+            return item.id === req.query.id;
+        });
+        if (fav) {
+            favourites.pop(fav);
+        }
+        res.end();
+    });
+
     app.use('/templates', express.static(path.join(__dirname, '../src/templates')))
 
     app.get('*', function(req, res) {

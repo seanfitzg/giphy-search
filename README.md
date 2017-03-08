@@ -11,7 +11,9 @@ Simple demo app to showcase Node, Angular, Webpack etc.  It also uses eslint, an
 The application can also be built with a minified bundle for production.  Run "**npm run build**" to create a production build.
 
 # Extra
-Add to favourites (press the star button on the popup)
+Add to favourites (press the plus button on the popup)
+Remove frmo favourites
 
 # Todo
-Remove from favourites.
+Refresh favourites screen when an giphy is removed.
+

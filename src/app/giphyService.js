@@ -13,14 +13,24 @@ const giphyService = function($http) {
 
     returnVal.addToFavourites = function(data) {
 
-        let x = $http.post('/api/favourites', data).then(
-            function(success) {
-                var x = success;
-            },
+        $http.post('/api/favourites', data).then(
+            function(success) {},
             function(fail) {
-                var x = fail;
+                console.log(fail);
             });
     };
+
+    returnVal.removeFromFavourites = function(data) {
+
+        $http.delete(`/api/favourites?id=${data.id}`).then(
+            function(success) {},
+            function(fail) {
+                console.log(fail);
+            });
+    };
+
+
+
 
     returnVal.getFavourites = function() {
 

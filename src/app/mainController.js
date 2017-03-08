@@ -6,11 +6,8 @@ import _ from 'lodash';
 export default function(giphyService) {
 
     const main = this;
-
     let lastCallToApi = {};
-
     main.offset = 0;
-    main.search = "test";
     main.results = [];
 
     function mapResults(results) {
@@ -63,6 +60,10 @@ export default function(giphyService) {
 
     main.addToFavourites = function(item) {
         giphyService.addToFavourites(item);
+    }
+
+    main.removeFromFavourites = function(item) {
+        giphyService.removeFromFavourites(item);
     }
 
     main.getFavourites = function() {

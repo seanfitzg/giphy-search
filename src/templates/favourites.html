@@ -38,8 +38,8 @@
                         <img class="img-responsive " src="{{main.selectedItem.fullSize}}" alt=" ">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-star" aria-hidden="true" title="Add to favourites"></span>
+                        <button type="button" class="btn btn-default" ng-click="main.removeFromFavourites(main.selectedItem)">
+                            <span class="glyphicon glyphicon-minus" aria-hidden="true" title="Remove from favourites"></span>
                         </button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
